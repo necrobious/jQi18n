@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jqi18n.js"></script>
+		<script type="text/javascript" src="jqi18n.ne.js"></script>
+		
+		<script type="text/javascript">
+
+			$(document).ready(function () {
+				// This should be done via jsonp request, where the server can respond with the correct i18n dictionary
+				//$.i18n({"welcome.label": "Welcome!"});
+				
+				// empty the body
+				$("body").empty();
+				
+				// render the welcome label to the body, which should be set in the jsonp file
+				$("body").append(
+					$.i18n("welcome.label", {user:'kirker'})
+				);
+				
+				// create a new line
+				$("body").append("<br/>");
+				
+				// now update the i18n dictinary.
+				$.i18n({"welcome.label": "Bienvenido"});
+				
+				// render the welcome label to the body again, which should render the updated value
+				$("body").append(
+					$.i18n("welcome.label")
+				);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
